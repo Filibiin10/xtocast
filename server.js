@@ -156,11 +156,11 @@ app.post('/api/paystack/initialize', (req, res) => {
     request.write(params);
     request.end();
 });
-const PAYSTACK_SECRET_KEY = process.env.SECRET
+const SECRET = process.env.SECRET
 app.post('/paystack/webhook', express.json(), (req, res) => {
     console.log('Headers:', req.headers); // Log headers to check if the signature header is included
     
-    const hash = crypto.createHmac('sha512', PAYSTACK_SECRET_KEY)
+    const hash = crypto.createHmac('sha512', SECRET)
                        .update(JSON.stringify(req.body))
                        .digest('hex');
 
