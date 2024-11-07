@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Page</title>
+    <link rel="stylesheet" href="shiine.css"> <!-- Link your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h3 id="nominee-name">Nominee Name</h3>
+        <h4 id="category-name">Category Name</h4>
+        <h1 id="ussd-info">USSD: *920*182# | Nominee Code: <span id="nominee-code"></span></h1>
+        <label for="votes">Enter number of votes:</label>
+        <input type="number" id="votes" placeholder="Enter number of votes">
+        <p id="amount">Amount to Pay: GHS <span id="amount-value">0</span>.00</p>
+        <label for="email">Email Address (optional):</label>
+        <input type="email" id="email" placeholder="Enter Your Email">
+        <button id="submit-btn">Submit</button>
+        <button id="cancel-btn">Cancel</button>
+        <div id="message" class="message"></div>
+    </div>
+    
+    <script  type="module" src="shiine.js"></script> <!-- Link your JS file -->
+    <script>
+        window.APP_ENV = {
+            CALLBACK_URL: "https://218c-41-78-74-79.ngrok-free.app/hubtel-callback",
+            MERCHANT_ACCOUNT: "2020861",
+            BASIC_AUTH: "RDAyajB2NTo3ZjYxNjMzZDEwYTA0NzYzOWIxM2Q3YzYzOGJkMDgyZA=="
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+ErrorDocument 404 /htdocs_error/404.html
+
+# Ensure index.html loads as the homepage
+DirectoryIndex index.html
+
+# Disable directory listing globally
+Options -Indexes
+
+# Use RewriteEngine to force a 404 error on restricted folders without trailing slashes
+RewriteEngine On
+
+# Redirect specific folders to 404 if accessed without a trailing slash
+RewriteCond %{REQUEST_URI} ^/(apps|pages|competitions|js|assets|htdocs_error)$
+RewriteRule ^ /htdocs_error/404.html [L,R=404]
